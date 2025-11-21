@@ -8,6 +8,99 @@
     "theme_support_url": "https://support.shopify.com/"
   },
   {
+    "name": "Literary AI Branding",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Brand Identity"
+      },
+      {
+        "type": "text",
+        "id": "site_title",
+        "label": "Site Title",
+        "default": "Literary AI Analysis"
+      },
+      {
+        "type": "text",
+        "id": "site_subtitle",
+        "label": "Site Subtitle",
+        "default": "Where Wisdom Meets Wonder"
+      },
+      {
+        "type": "textarea",
+        "id": "site_tagline",
+        "label": "Site Tagline",
+        "default": "AI-Powered Literary Analysis • World Maps • Family Trees • Timelines"
+      },
+      {
+        "type": "header",
+        "content": "Colors - Sage & Magician Palette"
+      },
+      {
+        "type": "color",
+        "id": "brand_primary",
+        "label": "Sage Primary (Wisdom)",
+        "default": "#7A9B76",
+        "info": "Main sage green color for wisdom and knowledge"
+      },
+      {
+        "type": "color",
+        "id": "brand_sage_light",
+        "label": "Sage Light",
+        "default": "#9CAF88"
+      },
+      {
+        "type": "color",
+        "id": "brand_sage_deep",
+        "label": "Sage Deep",
+        "default": "#4A5D23"
+      },
+      {
+        "type": "color",
+        "id": "brand_accent",
+        "label": "Magician Primary (Mystery)",
+        "default": "#6B4C9A",
+        "info": "Main purple color for mystical, transformative elements"
+      },
+      {
+        "type": "color",
+        "id": "brand_magician_light",
+        "label": "Magician Light",
+        "default": "#9370DB"
+      },
+      {
+        "type": "color",
+        "id": "brand_gold",
+        "label": "Magician Gold (Accent)",
+        "default": "#B8860B"
+      },
+      {
+        "type": "color",
+        "id": "brand_warm_white",
+        "label": "Background (Parchment)",
+        "default": "#F5F3EE",
+        "info": "Main background color with warm, scholarly feel"
+      },
+      {
+        "type": "color",
+        "id": "brand_cream",
+        "label": "Section Background (Cream)",
+        "default": "#F7F5F0"
+      },
+      {
+        "type": "header",
+        "content": "Typography"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_serif_fonts",
+        "label": "Use Serif Fonts (Baskerville/Georgia)",
+        "default": true,
+        "info": "Enable scholarly serif typography for literary feel"
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.logo.name",
     "settings": [
       {

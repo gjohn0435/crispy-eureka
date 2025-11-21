@@ -1,0 +1,322 @@
+<section class="literary-services multicolumn">
+  <div class="page-width">
+    {% if section.settings.title != blank %}
+      <div class="section-header text-center">
+        <h2 class="section-title collection__title">
+          {{ section.settings.title }}
+        </h2>
+        {% if section.settings.description != blank %}
+          <div class="section-description rte">
+            {{ section.settings.description }}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="multicolumn-grid grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'service' %}
+            <div class="multicolumn-card grid__item" {{ block.shopify_attributes }}>
+              <div class="service-card">
+                {% if block.settings.icon_class != blank %}
+                  <div class="service-icon">
+                    <i class="{{ block.settings.icon_class }}"></i>
+                  </div>
+                {% endif %}
+
+                {% if block.settings.image %}
+                  <div class="service-image">
+                    {{
+                      block.settings.image
+                      | image_url: width: 400
+                      | image_tag:
+                        loading: 'lazy',
+                        width: block.settings.image.width,
+                        height: block.settings.image.height,
+                        alt: block.settings.image.alt | escape
+                    }}
+                  </div>
+                {% endif %}
+
+                <div class="service-content">
+                  <h3 class="multicolumn-card__title">{{ block.settings.title }}</h3>
+                  <div class="multicolumn-card__description rte">
+                    {{ block.settings.description }}
+                  </div>
+
+                  {% if block.settings.link_label != blank and block.settings.link != blank %}
+                    <a href="{{ block.settings.link }}" class="service-link">
+                      {{ block.settings.link_label }} <i class="fas fa-arrow-right"></i>
+                    </a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+.literary-services {
+  padding: 5rem 0;
+  background: linear-gradient(180deg, var(--parchment-bg, #F5F3EE) 0%, var(--parchment-light, #E8E4DC) 100%);
+}
+
+.section-header {
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-family: 'Baskerville', 'Georgia', serif;
+  color: var(--magician-primary, #6B4C9A);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.section-description {
+  color: var(--text-secondary, #5A5A5A);
+  font-size: 1.125rem;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.multicolumn-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.service-card {
+  background: white;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  position: relative;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--mystical-gradient, linear-gradient(135deg, #7A9B76 0%, #6B4C9A 100%));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 12px 12px 0 0;
+}
+
+.service-card:hover {
+  border-color: var(--magician-primary, #6B4C9A);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(107, 76, 154, 0.15);
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+.service-icon {
+  font-size: 3rem;
+  color: var(--magician-gold, #B8860B);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.service-image {
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.service-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.service-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.multicolumn-card__title {
+  font-family: 'Baskerville', 'Georgia', serif;
+  color: var(--sage-deep, #4A5D23);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.multicolumn-card__description {
+  color: var(--text-secondary, #5A5A5A);
+  line-height: 1.8;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.service-link {
+  color: var(--magician-primary, #6B4C9A);
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  margin-top: auto;
+}
+
+.service-link:hover {
+  color: var(--magician-gold, #B8860B);
+  gap: 0.75rem;
+}
+
+@media screen and (max-width: 749px) {
+  .literary-services {
+    padding: 3rem 0;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .multicolumn-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Literary Services",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Our Literary AI Services"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Section Description"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "label": "Columns (Desktop)",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "label": "Columns (Mobile)",
+      "options": [
+        {
+          "value": "1",
+          "label": "1 column"
+        },
+        {
+          "value": "2",
+          "label": "2 columns"
+        }
+      ],
+      "default": "1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "service",
+      "name": "Service",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon_class",
+          "label": "Font Awesome Icon Class",
+          "default": "fas fa-map-marked-alt",
+          "info": "e.g., 'fas fa-map-marked-alt', 'fas fa-project-diagram', 'fas fa-clock'"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Service Image (optional)"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Service Title",
+          "default": "AI-Generated World Maps"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Service Description",
+          "default": "<p>Transform fictional realms into stunning cartographic masterpieces. Our AI analyzes geographical descriptions and creates detailed, customizable maps that bring literary worlds to vivid life.</p>"
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Link Label",
+          "default": "Explore World Maps"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Literary Services",
+      "blocks": [
+        {
+          "type": "service",
+          "settings": {
+            "icon_class": "fas fa-map-marked-alt",
+            "title": "AI-Generated World Maps",
+            "description": "<p>Transform fictional realms into stunning cartographic masterpieces. Our AI analyzes geographical descriptions and creates detailed, customizable maps that bring literary worlds to vivid life. Perfect for fantasy epics, sci-fi sagas, and complex narratives.</p>",
+            "link_label": "Explore World Maps"
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "icon_class": "fas fa-project-diagram",
+            "title": "Character Family Trees",
+            "description": "<p>Unravel complex relationships with AI-powered genealogical visualizations. Our system traces bloodlines, marriages, and connections across generations, creating elegant family trees that illuminate character dynamics and plot developments.</p>",
+            "link_label": "Create Family Trees"
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "icon_class": "fas fa-clock",
+            "title": "Narrative Timelines",
+            "description": "<p>Map the chronology of your favorite stories with precision and beauty. Our AI constructs detailed timelines that track events, flashbacks, and parallel storylines, revealing the intricate temporal architecture of narratives.</p>",
+            "link_label": "Build Timelines"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

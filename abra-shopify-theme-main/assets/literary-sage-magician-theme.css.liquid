@@ -3,23 +3,26 @@
  * Color Philosophy:
  * Sage: Wisdom, knowledge, understanding (greens, earth tones)
  * Magician: Mystery, transformation, wonder (purples, golds)
+ *
+ * Note: This file uses Liquid templating to access theme settings.
+ * Colors can be customized through Shopify admin: Theme Settings > Literary AI Branding
  */
 
 :root {
   /* Sage Archetype Colors - Wisdom & Knowledge */
-  --sage-primary: #7A9B76;
-  --sage-light: #9CAF88;
-  --sage-deep: #4A5D23;
+  --sage-primary: {{ settings.brand_primary | default: '#7A9B76' }};
+  --sage-light: {{ settings.brand_sage_light | default: '#9CAF88' }};
+  --sage-deep: {{ settings.brand_sage_deep | default: '#4A5D23' }};
   --sage-muted: #B8C5B1;
 
   /* Magician Archetype Colors - Mystery & Transformation */
-  --magician-primary: #6B4C9A;
-  --magician-light: #9370DB;
-  --magician-gold: #B8860B;
+  --magician-primary: {{ settings.brand_accent | default: '#6B4C9A' }};
+  --magician-light: {{ settings.brand_magician_light | default: '#9370DB' }};
+  --magician-gold: {{ settings.brand_gold | default: '#B8860B' }};
   --magician-accent: #DDA15E;
 
   /* Neutral & Background Colors */
-  --parchment-bg: #F5F3EE;
+  --parchment-bg: {{ settings.brand_warm_white | default: '#F5F3EE' }};
   --parchment-light: #E8E4DC;
   --parchment-dark: #D4CEC4;
   --text-primary: #2C2C2C;

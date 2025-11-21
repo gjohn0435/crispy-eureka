@@ -1,0 +1,292 @@
+{% comment %}
+  Literary AI Custom Footer
+  Branded footer with links and social media
+{% endcomment %}
+
+<footer class="literary-ai-footer" role="contentinfo">
+  <div class="footer-container page-width">
+    <div class="footer-grid">
+      <div class="footer-column footer-brand">
+        <h3 class="footer-heading">{{ settings.site_title | default: shop.name }}</h3>
+        {% if settings.site_tagline != blank %}
+          <p class="footer-tagline">{{ settings.site_tagline }}</p>
+        {% endif %}
+        <p class="footer-description">
+          Where wisdom meets wonder. AI-powered literary analysis for readers, writers, and scholars.
+        </p>
+      </div>
+
+      <div class="footer-column footer-links">
+        <h4 class="footer-subheading">Quick Links</h4>
+        <ul class="footer-menu">
+          <li><a href="{{ routes.root_url }}">Home</a></li>
+          <li><a href="{{ routes.collections_url }}">Shop</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="{{ routes.search_url }}">Search</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column footer-support">
+        <h4 class="footer-subheading">Customer Support</h4>
+        <ul class="footer-menu">
+          <li><a href="{{ routes.cart_url }}">Cart</a></li>
+          <li><a href="{{ routes.account_url }}">Account</a></li>
+          {% if shop.customer_accounts_enabled %}
+            <li><a href="{{ routes.account_login_url }}">Login</a></li>
+          {% endif %}
+          <li><a href="/pages/faq">FAQ</a></li>
+          <li><a href="/pages/contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column footer-social">
+        <h4 class="footer-subheading">Connect With Us</h4>
+        <div class="social-icons">
+          {% if settings.social_facebook_link != blank %}
+            <a href="{{ settings.social_facebook_link }}" class="social-link" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          {% endif %}
+          {% if settings.social_twitter_link != blank %}
+            <a href="{{ settings.social_twitter_link }}" class="social-link" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+          {% endif %}
+          {% if settings.social_instagram_link != blank %}
+            <a href="{{ settings.social_instagram_link }}" class="social-link" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+          {% endif %}
+          {% if settings.social_pinterest_link != blank %}
+            <a href="{{ settings.social_pinterest_link }}" class="social-link" aria-label="Pinterest">
+              <i class="fab fa-pinterest-p"></i>
+            </a>
+          {% endif %}
+        </div>
+
+        <div class="footer-newsletter">
+          <p>Subscribe for updates</p>
+          {% form 'customer', class: 'newsletter-form' %}
+            {% if form.posted_successfully? %}
+              <p class="success-message">Thanks for subscribing!</p>
+            {% else %}
+              <div class="newsletter-input-group">
+                <input
+                  type="email"
+                  name="contact[email]"
+                  placeholder="Your email"
+                  required
+                  class="newsletter-input"
+                >
+                <button type="submit" class="newsletter-submit">
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </div>
+            {% endif %}
+          {% endform %}
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copyright">
+        &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.
+      </p>
+      <div class="footer-legal">
+        <a href="/pages/privacy-policy">Privacy Policy</a>
+        <span class="separator">•</span>
+        <a href="/pages/terms-of-service">Terms of Service</a>
+        <span class="separator">•</span>
+        <a href="/pages/refund-policy">Refund Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+.literary-ai-footer {
+  background: linear-gradient(180deg, var(--sage-deep, #4A5D23) 0%, var(--magician-primary, #6B4C9A) 100%);
+  color: white;
+  padding: 4rem 0 2rem;
+  margin-top: 4rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-heading {
+  font-family: 'Baskerville', 'Georgia', serif;
+  color: var(--magician-gold, #B8860B);
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-tagline {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.9;
+  margin-bottom: 1rem;
+}
+
+.footer-description {
+  line-height: 1.7;
+  opacity: 0.85;
+}
+
+.footer-subheading {
+  font-family: 'Baskerville', 'Georgia', serif;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--magician-gold, #B8860B);
+}
+
+.footer-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-menu li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-menu a {
+  color: white;
+  text-decoration: none;
+  opacity: 0.85;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.footer-menu a:hover {
+  opacity: 1;
+  transform: translateX(5px);
+  color: var(--magician-gold, #B8860B);
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  background: var(--magician-gold, #B8860B);
+  transform: translateY(-3px);
+}
+
+.footer-newsletter p {
+  margin-bottom: 0.5rem;
+  opacity: 0.9;
+}
+
+.newsletter-input-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.newsletter-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.newsletter-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.newsletter-submit {
+  padding: 0.75rem 1.25rem;
+  background: var(--magician-gold, #B8860B);
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.newsletter-submit:hover {
+  background: var(--sage-light, #9CAF88);
+  transform: translateY(-2px);
+}
+
+.success-message {
+  color: var(--magician-gold, #B8860B);
+  font-weight: 600;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-copyright {
+  opacity: 0.7;
+  margin: 0;
+}
+
+.footer-legal {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.footer-legal a {
+  color: white;
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.footer-legal a:hover {
+  opacity: 1;
+}
+
+.separator {
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 768px) {
+  .literary-ai-footer {
+    padding: 3rem 0 1.5rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+</style>

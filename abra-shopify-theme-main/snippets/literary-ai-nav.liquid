@@ -1,0 +1,200 @@
+{% comment %}
+  Literary AI Custom Navigation
+  Displays brand identity with navigation menu
+{% endcomment %}
+
+<nav class="literary-ai-nav" role="navigation">
+  <div class="nav-container page-width">
+    <div class="nav-brand">
+      <a href="{{ routes.root_url }}" class="nav-logo-link">
+        {% if settings.logo %}
+          <img
+            src="{{ settings.logo | image_url: width: settings.logo_width }}"
+            alt="{{ shop.name }}"
+            width="{{ settings.logo_width }}"
+            height="auto"
+            loading="lazy"
+          >
+        {% else %}
+          <div class="nav-brand-text">
+            <span class="nav-title">{{ settings.site_title | default: shop.name }}</span>
+            {% if settings.site_subtitle != blank %}
+              <span class="nav-subtitle">{{ settings.site_subtitle }}</span>
+            {% endif %}
+          </div>
+        {% endif %}
+      </a>
+    </div>
+
+    <button type="button" class="nav-mobile-toggle" aria-label="Toggle navigation menu">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a href="{{ routes.root_url }}" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item">
+        <a href="#services" class="nav-link">Services</a>
+      </li>
+      <li class="nav-item">
+        <a href="{{ routes.collections_url }}" class="nav-link">Shop</a>
+      </li>
+      <li class="nav-item">
+        <a href="#about" class="nav-link">About</a>
+      </li>
+      <li class="nav-item nav-item-cart">
+        <a href="{{ routes.cart_url }}" class="nav-link cart-link">
+          <i class="fas fa-shopping-cart"></i>
+          {% if cart.item_count > 0 %}
+            <span class="cart-count">{{ cart.item_count }}</span>
+          {% endif %}
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<style>
+.literary-ai-nav {
+  background: white;
+  border-bottom: 1px solid var(--sage-muted, #B8C5B1);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-title {
+  font-family: 'Baskerville', 'Georgia', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--magician-primary, #6B4C9A);
+}
+
+.nav-subtitle {
+  font-size: 0.75rem;
+  color: var(--sage-deep, #4A5D23);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.nav-mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--magician-primary, #6B4C9A);
+  cursor: pointer;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--text-primary, #2C2C2C);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+  padding-bottom: 0.25rem;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--mystical-gradient, linear-gradient(135deg, #7A9B76 0%, #6B4C9A 100%));
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--magician-primary, #6B4C9A);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.cart-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--magician-gold, #B8860B);
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-mobile-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    gap: 1rem;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const toggle = document.querySelector('.nav-mobile-toggle');
+  const menu = document.querySelector('.nav-menu');
+
+  if (toggle && menu) {
+    toggle.addEventListener('click', function() {
+      menu.classList.toggle('active');
+    });
+  }
+});
+</script>
