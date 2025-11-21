@@ -1,0 +1,471 @@
+/* Apple-style Product Page */
+/* Inspired by Apple's product presentation */
+
+/* Product Main Container */
+.product {
+  background-color: rgb(255, 255, 255);
+  padding: 4rem 0;
+}
+
+.product__info-wrapper {
+  display: grid;
+  gap: 3rem;
+}
+
+@media screen and (min-width: 990px) {
+  .product__info-wrapper {
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+}
+
+/* Product Images - Clean Apple Style */
+.product__media-wrapper,
+.product__media-list {
+  margin: 0;
+  padding: 0;
+}
+
+.product__media-item {
+  background-color: rgb(250, 250, 252);
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product__media-item:hover {
+  transform: scale(1.02);
+}
+
+.product__media-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Product Info Section */
+.product__info-container {
+  padding: 2rem 0;
+}
+
+.product__title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  color: rgb(29, 29, 31);
+}
+
+@media screen and (min-width: 750px) {
+  .product__title {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .product__title {
+    font-size: 3.5rem;
+  }
+}
+
+/* Product Price - Apple Style */
+.price {
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  color: rgb(29, 29, 31);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.price--large {
+  font-size: 2rem;
+}
+
+.price__container {
+  margin-bottom: 2rem;
+}
+
+.price__regular {
+  color: rgb(29, 29, 31);
+}
+
+.price__sale {
+  color: rgb(191, 38, 0);
+}
+
+.price__compare {
+  color: rgb(134, 142, 150);
+  text-decoration: line-through;
+  font-size: 1.25rem;
+  margin-left: 0.75rem;
+}
+
+/* Product Description - Apple Typography */
+.product__description {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: rgb(66, 66, 69);
+  letter-spacing: -0.01em;
+  margin-bottom: 2rem;
+}
+
+.product__description p {
+  margin-bottom: 1rem;
+}
+
+.product__description h2,
+.product__description h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: rgb(29, 29, 31);
+}
+
+/* Product Form - Clean Apple Inputs */
+.product-form {
+  margin-top: 2rem;
+}
+
+.product-form__input {
+  margin-bottom: 1.5rem;
+}
+
+.product-form__label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: rgb(29, 29, 31);
+  margin-bottom: 0.5rem;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Variant Selector - Apple Style */
+.product-form__input--dropdown,
+.product-form__input--swatch {
+  margin-bottom: 1.5rem;
+}
+
+select.product-form__select,
+.product-form__input select {
+  background-color: rgb(245, 245, 247);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  color: rgb(29, 29, 31);
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%231d1d1f' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 3rem;
+}
+
+select.product-form__select:hover,
+.product-form__input select:hover {
+  background-color: rgb(240, 240, 242);
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+select.product-form__select:focus,
+.product-form__input select:focus {
+  outline: none;
+  border-color: rgb(0, 113, 227);
+  box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.1);
+}
+
+/* Variant Pills/Swatches - Apple Style */
+.product-form__input--pill {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.variant-input-wrapper {
+  position: relative;
+}
+
+.variant-input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.variant-label {
+  display: inline-block;
+  padding: 0.625rem 1.25rem;
+  background-color: rgb(245, 245, 247);
+  border: 2px solid transparent;
+  border-radius: 980px;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: rgb(29, 29, 31);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: -0.01em;
+}
+
+.variant-label:hover {
+  background-color: rgb(240, 240, 242);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.variant-input:checked + .variant-label {
+  background-color: rgb(29, 29, 31);
+  color: rgb(255, 255, 255);
+  border-color: rgb(29, 29, 31);
+}
+
+.variant-input:disabled + .variant-label {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Quantity Selector - Apple Clean Design */
+.quantity {
+  display: flex;
+  align-items: center;
+  background-color: rgb(245, 245, 247);
+  border-radius: 12px;
+  width: fit-content;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.quantity__button {
+  background-color: transparent;
+  border: none;
+  color: rgb(29, 29, 31);
+  font-size: 1.25rem;
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantity__button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.quantity__input {
+  background-color: transparent;
+  border: none;
+  text-align: center;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1rem;
+  color: rgb(29, 29, 31);
+  font-weight: 500;
+}
+
+.quantity__input:focus {
+  outline: none;
+}
+
+/* Add to Cart Button - Apple Blue */
+.product-form__submit {
+  background-color: rgb(0, 113, 227);
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 980px;
+  padding: 1rem 2rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: none;
+  margin-bottom: 1rem;
+}
+
+.product-form__submit:hover:not(:disabled) {
+  background-color: rgb(0, 102, 204);
+  transform: scale(1.01);
+  box-shadow: 0 4px 16px rgba(0, 113, 227, 0.3);
+}
+
+.product-form__submit:disabled {
+  background-color: rgb(134, 142, 150);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Dynamic Payment Buttons */
+.shopify-payment-button {
+  margin-top: 1rem;
+}
+
+.shopify-payment-button__button {
+  border-radius: 12px !important;
+}
+
+/* Product Meta Info - Apple Style */
+.product__accordion,
+.product-accordion {
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  margin-top: 2rem;
+  padding-top: 2rem;
+}
+
+.accordion {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.accordion__title {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: rgb(29, 29, 31);
+  padding: 1.25rem 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+
+.accordion__title:hover {
+  color: rgb(0, 113, 227);
+}
+
+.accordion__content {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgb(66, 66, 69);
+  padding-bottom: 1.25rem;
+}
+
+/* Product Recommendations - Apple Style */
+.product-recommendations {
+  margin-top: 6rem;
+  padding-top: 4rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.product-recommendations__heading {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: rgb(29, 29, 31);
+}
+
+@media screen and (min-width: 750px) {
+  .product-recommendations__heading {
+    font-size: 2.5rem;
+  }
+}
+
+/* Share Buttons - Minimal */
+.share-button {
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  color: rgb(29, 29, 31);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.share-button:hover {
+  background-color: rgb(245, 245, 247);
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+/* Inventory/Stock Badge */
+.product__inventory,
+.inventory {
+  font-size: 0.875rem;
+  color: rgb(191, 38, 0);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.product__inventory--in-stock,
+.inventory--in-stock {
+  color: rgb(7, 125, 0);
+}
+
+/* Product Details List */
+.product__details-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.product__details-list li {
+  padding: 0.5rem 0;
+  font-size: 0.95rem;
+  color: rgb(66, 66, 69);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.product__details-list li:last-child {
+  border-bottom: none;
+}
+
+/* Breadcrumbs - Apple minimalism */
+.breadcrumbs {
+  font-size: 0.875rem;
+  color: rgb(134, 142, 150);
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+}
+
+.breadcrumbs a {
+  color: rgb(0, 113, 227);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.breadcrumbs a:hover {
+  opacity: 0.7;
+}
+
+.breadcrumbs__separator {
+  margin: 0 0.5rem;
+  color: rgb(134, 142, 150);
+}
+
+/* Product Badges - Clean */
+.product__badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: rgb(29, 29, 31);
+  color: rgb(255, 255, 255);
+  padding: 0.375rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+.product__badge--sale {
+  background-color: rgb(191, 38, 0);
+}
+
+.product__badge--new {
+  background-color: rgb(0, 113, 227);
+}

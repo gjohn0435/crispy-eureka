@@ -1,0 +1,276 @@
+/* Apple-style Header Enhancements */
+/* Inspired by Apple.com's signature navigation */
+
+/* Sticky Header with Blur Effect */
+.shopify-section-header-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-wrapper {
+  background-color: rgba(255, 255, 255, 0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: none;
+}
+
+.header-wrapper.header-wrapper--border-bottom {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: none;
+}
+
+.header {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo Styling */
+.header__heading,
+.header__heading-link {
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: rgb(29, 29, 31);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.header__heading-link:hover {
+  opacity: 0.7;
+}
+
+/* Navigation Menu - Apple Style */
+.header__menu {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header__menu-item {
+  position: relative;
+}
+
+.header__menu-item span,
+.header__menu-item a {
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: rgb(29, 29, 31);
+  text-decoration: none;
+  padding: 0.5rem 0;
+  display: inline-block;
+  transition: color 0.2s ease;
+}
+
+.header__menu-item span:hover,
+.header__menu-item a:hover,
+.header__menu-item.active span,
+.header__menu-item.active a {
+  color: rgb(134, 142, 150);
+}
+
+/* Menu Item Underline Effect */
+.header__menu-item a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: rgb(29, 29, 31);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header__menu-item a:hover::after {
+  width: 100%;
+}
+
+/* Header Icons - Apple minimalism */
+.header__icons {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.header__icon,
+.header__icon--cart,
+.header__icon--account,
+.header__icon--search {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: rgb(29, 29, 31);
+  transition: opacity 0.2s ease;
+  cursor: pointer;
+}
+
+.header__icon:hover,
+.header__icon--cart:hover,
+.header__icon--account:hover,
+.header__icon--search:hover {
+  opacity: 0.6;
+}
+
+/* Search Bar - Apple Style */
+.header__search,
+.search-modal__content {
+  background-color: rgba(245, 245, 247, 0.8);
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  border: none;
+}
+
+.search-modal__form {
+  background-color: rgb(245, 245, 247);
+  border-radius: 10px;
+  padding: 0.75rem 1.25rem;
+  border: none;
+}
+
+.search__input {
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  color: rgb(29, 29, 31);
+  letter-spacing: -0.01em;
+}
+
+.search__input::placeholder {
+  color: rgb(134, 142, 150);
+}
+
+.search__input:focus {
+  outline: none;
+}
+
+/* Mobile Menu Toggle - Clean design */
+.header__icon--menu {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: rgb(29, 29, 31);
+}
+
+/* Mega Menu - Apple dropdown style */
+.mega-menu,
+.header__submenu {
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  margin-top: 0.5rem;
+  padding: 1.5rem;
+}
+
+.mega-menu__list,
+.header__submenu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mega-menu__link,
+.header__submenu-link {
+  font-size: 0.875rem;
+  color: rgb(29, 29, 31);
+  text-decoration: none;
+  padding: 0.5rem 0;
+  display: block;
+  transition: color 0.2s ease;
+}
+
+.mega-menu__link:hover,
+.header__submenu-link:hover {
+  color: rgb(0, 113, 227);
+}
+
+/* Cart Badge - Apple style */
+.cart-count-bubble {
+  background-color: rgb(0, 113, 227);
+  color: white;
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.625rem;
+  font-weight: 600;
+  position: absolute;
+  top: -0.25rem;
+  right: -0.25rem;
+}
+
+/* Announcement Bar - Apple minimalism */
+.announcement-bar {
+  background-color: rgb(245, 245, 247);
+  color: rgb(29, 29, 31);
+  font-size: 0.875rem;
+  padding: 0.75rem 0;
+  text-align: center;
+  letter-spacing: -0.01em;
+  border: none;
+}
+
+.announcement-bar__link {
+  color: rgb(0, 113, 227);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.announcement-bar__link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 989px) {
+  .header__menu {
+    flex-direction: column;
+    gap: 0;
+    align-items: flex-start;
+  }
+
+  .header__menu-item {
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  .header__menu-item span,
+  .header__menu-item a {
+    padding: 1rem 0;
+    width: 100%;
+    font-size: 1rem;
+  }
+}
+
+/* Drawer Menu - Apple style for mobile */
+.menu-drawer {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+
+.menu-drawer__inner {
+  background-color: transparent;
+}
+
+.menu-drawer__navigation-item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.menu-drawer__menu-item {
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: rgb(29, 29, 31);
+  padding: 1rem 0;
+}
