@@ -117,6 +117,97 @@
         "columns_mobile": "1"
       }
     },
+    "about_literary_ai": {
+      "type": "about-literary-ai",
+      "blocks": {
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "icon": "fas fa-brain",
+            "title": "AI-Powered Analysis",
+            "description": "Advanced machine learning algorithms analyze narrative structure, character development, and thematic elements."
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "icon": "fas fa-graduation-cap",
+            "title": "Scholarly Accuracy",
+            "description": "Built on literary theory and research methodologies trusted by academics and professionals."
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "icon": "fas fa-users",
+            "title": "Community Driven",
+            "description": "Join thousands of readers, writers, and scholars using our platform to deepen their understanding."
+          }
+        }
+      },
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3"
+      ],
+      "settings": {
+        "heading": "About Our Literary AI Platform",
+        "description": "<p>We harness the power of artificial intelligence to unlock deeper understanding of literature. Our platform combines scholarly wisdom with cutting-edge technology to transform how readers, writers, and researchers engage with narratives.</p>",
+        "show_cta": true,
+        "cta_text": "Explore Our Platform",
+        "cta_link": "shopify://collections/all"
+      }
+    },
+    "how_it_works": {
+      "type": "how-it-works",
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "icon": "fas fa-upload",
+            "title": "Upload Your Text",
+            "description": "Upload your book, manuscript, or narrative text to our secure platform in various formats including PDF, DOCX, or plain text."
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "icon": "fas fa-cog",
+            "title": "AI Processing",
+            "description": "Our advanced AI algorithms analyze character relationships, plot structure, geographical descriptions, and temporal sequences."
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "icon": "fas fa-palette",
+            "title": "Choose Your Visualization",
+            "description": "Select from world maps, family trees, or timelines. Customize colors, styles, and layouts to match your vision."
+          }
+        },
+        "step_4": {
+          "type": "step",
+          "settings": {
+            "icon": "fas fa-download",
+            "title": "Download & Share",
+            "description": "Export your visualizations in high-resolution formats. Perfect for presentations, publications, or personal collections."
+          }
+        }
+      },
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3",
+        "step_4"
+      ],
+      "settings": {
+        "heading": "How Literary AI Analysis Works",
+        "description": "<p>Transform your favorite narratives into stunning visual analysis in just a few simple steps.</p>",
+        "show_cta": true,
+        "cta_text": "Get Started Today",
+        "cta_link": "shopify://collections/all"
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -136,12 +227,57 @@
         "padding_top": 28,
         "padding_bottom": 36
       }
+    },
+    "newsletter_signup": {
+      "type": "newsletter-signup",
+      "blocks": {
+        "benefit_1": {
+          "type": "benefit",
+          "settings": {
+            "icon": "fas fa-book-open",
+            "text": "Weekly literary insights"
+          }
+        },
+        "benefit_2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "fas fa-gift",
+            "text": "Exclusive offers & early access"
+          }
+        },
+        "benefit_3": {
+          "type": "benefit",
+          "settings": {
+            "icon": "fas fa-bell",
+            "text": "New feature announcements"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_1",
+        "benefit_2",
+        "benefit_3"
+      ],
+      "settings": {
+        "icon": "fas fa-envelope",
+        "heading": "Join Our Literary Community",
+        "subheading": "Stay Updated with Literary Insights",
+        "description": "<p>Get exclusive access to literary analysis insights, new features, and special offers delivered to your inbox.</p>",
+        "email_placeholder": "Enter your email address",
+        "button_text": "Subscribe",
+        "success_message": "Thanks for subscribing! Check your inbox for confirmation.",
+        "show_privacy_note": true,
+        "privacy_note": "We respect your privacy. Unsubscribe at any time."
+      }
     }
   },
   "order": [
     "literary_ai_hero",
     "rich_text",
     "literary_services",
-    "featured_collection"
+    "about_literary_ai",
+    "how_it_works",
+    "featured_collection",
+    "newsletter_signup"
   ]
 }
