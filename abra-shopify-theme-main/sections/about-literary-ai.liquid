@@ -1,37 +1,53 @@
 <section class="about-literary-ai-section">
   <div class="container page-width">
-    <div class="about-grid">
-      <div class="about-content">
-        {% if section.settings.heading != blank %}
-          <h2 class="about-heading">{{ section.settings.heading }}</h2>
-        {% endif %}
+    {% if section.settings.heading != blank %}
+      <div class="section-intro">
+        <h2 class="section-heading text-center">{{ section.settings.heading }}</h2>
+      </div>
+    {% endif %}
 
-        {% if section.settings.description != blank %}
-          <div class="about-description rte">
-            {{ section.settings.description }}
+    <div class="profile-section">
+      <div class="profile-container">
+        {% if section.settings.image %}
+          <div class="profile-image-wrapper">
+            <div class="profile-image">
+              {{
+                section.settings.image
+                | image_url: width: 600
+                | image_tag:
+                  loading: 'lazy',
+                  width: section.settings.image.width,
+                  height: section.settings.image.height,
+                  alt: section.settings.image.alt | escape
+              }}
+            </div>
           </div>
         {% endif %}
 
-        {% if section.settings.show_cta %}
-          <a href="{{ section.settings.cta_link }}" class="btn-primary">
-            {{ section.settings.cta_text }}
-          </a>
-        {% endif %}
-      </div>
+        <div class="profile-content">
+          {% if section.settings.profile_name != blank %}
+            <h3 class="profile-name">{{ section.settings.profile_name }}</h3>
+          {% endif %}
 
-      {% if section.settings.image %}
-        <div class="about-image">
-          {{
-            section.settings.image
-            | image_url: width: 800
-            | image_tag:
-              loading: 'lazy',
-              width: section.settings.image.width,
-              height: section.settings.image.height,
-              alt: section.settings.image.alt | escape
-          }}
+          {% if section.settings.profile_title != blank %}
+            <p class="profile-title">{{ section.settings.profile_title }}</p>
+          {% endif %}
+
+          {% if section.settings.description != blank %}
+            <div class="profile-description rte">
+              {{ section.settings.description }}
+            </div>
+          {% endif %}
+
+          {% if section.settings.show_cta %}
+            <div class="profile-cta">
+              <a href="{{ section.settings.cta_link }}" class="btn-primary">
+                {{ section.settings.cta_text }}
+              </a>
+            </div>
+          {% endif %}
         </div>
-      {% endif %}
+      </div>
     </div>
 
     {% if section.blocks.size > 0 %}
@@ -58,45 +74,132 @@
 <style>
 .about-literary-ai-section {
   padding: 5rem 0;
-  background: white;
+  background: linear-gradient(180deg, white 0%, var(--parchment-light, #E8E4DC) 100%);
 }
 
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-  margin-bottom: 4rem;
+.section-intro {
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
-.about-heading {
+.section-heading {
   font-family: 'Baskerville', 'Georgia', serif;
   color: var(--magician-primary, #6B4C9A);
   font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.about-description {
-  font-size: 1.125rem;
-  line-height: 1.8;
-  color: var(--text-secondary, #5A5A5A);
-  margin-bottom: 2rem;
-}
-
-.about-description p {
   margin-bottom: 1rem;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
 }
 
-.about-image {
+.section-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--wisdom-gradient, linear-gradient(45deg, #4A5D23 0%, #B8860B 100%));
+  border-radius: 2px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.profile-section {
+  margin-bottom: 4rem;
+}
+
+.profile-container {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 4rem;
+  align-items: start;
+  background: white;
+  padding: 3rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(107, 76, 154, 0.12);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.profile-container:hover {
+  border-color: var(--magician-light, #9370DB);
+  box-shadow: 0 12px 40px rgba(107, 76, 154, 0.18);
+}
+
+.profile-image-wrapper {
+  position: relative;
+}
+
+.profile-image-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  right: 15px;
+  bottom: 15px;
+  background: var(--mystical-gradient, linear-gradient(135deg, #7A9B76 0%, #6B4C9A 100%));
+  border-radius: 12px;
+  z-index: 0;
+  opacity: 0.2;
+}
+
+.profile-image {
+  position: relative;
+  z-index: 1;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(107, 76, 154, 0.15);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
-.about-image img {
+.profile-image img {
   width: 100%;
   height: auto;
   display: block;
+}
+
+.profile-content {
+  padding: 1rem 0;
+}
+
+.profile-name {
+  font-family: 'Baskerville', 'Georgia', serif;
+  color: var(--magician-primary, #6B4C9A);
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.profile-title {
+  font-size: 1.125rem;
+  color: var(--sage-deep, #4A5D23);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.profile-description {
+  font-size: 1.0625rem;
+  line-height: 1.9;
+  color: var(--text-primary, #1a1a1a);
+  margin-bottom: 2rem;
+}
+
+.profile-description p {
+  margin-bottom: 1rem;
+}
+
+.profile-description p:last-child {
+  margin-bottom: 0;
+}
+
+.profile-cta {
+  margin-top: 2rem;
 }
 
 .features-grid {
@@ -133,8 +236,25 @@
 }
 
 .feature-description {
-  color: var(--text-secondary, #5A5A5A);
+  color: var(--text-primary, #1a1a1a);
   line-height: 1.6;
+}
+
+@media screen and (max-width: 990px) {
+  .profile-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .profile-image-wrapper {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .profile-content {
+    text-align: center;
+  }
 }
 
 @media screen and (max-width: 749px) {
@@ -142,13 +262,16 @@
     padding: 3rem 0;
   }
 
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+  .section-heading {
+    font-size: 2rem;
   }
 
-  .about-heading {
-    font-size: 2rem;
+  .profile-name {
+    font-size: 1.75rem;
+  }
+
+  .profile-title {
+    font-size: 1rem;
   }
 
   .features-grid {
@@ -170,15 +293,36 @@
       "default": "About Our Literary AI Platform"
     },
     {
-      "type": "richtext",
-      "id": "description",
-      "label": "Description",
-      "default": "<p>We harness the power of artificial intelligence to unlock deeper understanding of literature. Our platform combines scholarly wisdom with cutting-edge technology to transform how readers, writers, and researchers engage with narratives.</p>"
+      "type": "header",
+      "content": "Profile Information"
     },
     {
       "type": "image_picker",
       "id": "image",
-      "label": "Featured Image"
+      "label": "Profile Image",
+      "info": "Recommended size: 600x600px or larger"
+    },
+    {
+      "type": "text",
+      "id": "profile_name",
+      "label": "Name",
+      "default": "Dr. Literary Expert"
+    },
+    {
+      "type": "text",
+      "id": "profile_title",
+      "label": "Title/Role",
+      "default": "Chief Literary Analyst"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Biography/Description",
+      "default": "<p>With over 15 years of experience in literary analysis and artificial intelligence, our team combines deep scholarly knowledge with cutting-edge technology. We've analyzed thousands of narratives, helping readers, writers, and researchers unlock deeper understanding of their favorite stories.</p><p>Our AI-powered platform represents the convergence of traditional literary scholarship and modern machine learning, creating tools that illuminate the hidden patterns within narratives.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Call to Action"
     },
     {
       "type": "checkbox",
@@ -190,7 +334,7 @@
       "type": "text",
       "id": "cta_text",
       "label": "Button Text",
-      "default": "Explore Our Platform"
+      "default": "Learn More About Our Approach"
     },
     {
       "type": "url",
@@ -228,6 +372,15 @@
   "presets": [
     {
       "name": "About Literary AI",
+      "settings": {
+        "heading": "Meet Our Literary AI Expert",
+        "profile_name": "Dr. Sarah Mitchell",
+        "profile_title": "Chief Literary Analyst & AI Researcher",
+        "description": "<p>With over 15 years of experience in literary analysis and artificial intelligence, Dr. Mitchell leads our team in combining deep scholarly knowledge with cutting-edge technology. She has analyzed thousands of narratives, helping readers, writers, and researchers unlock deeper understanding of their favorite stories.</p><p>Her groundbreaking work in computational narratology has been published in leading academic journals, and she regularly speaks at international conferences on the intersection of AI and literary studies.</p>",
+        "show_cta": true,
+        "cta_text": "Learn More About Our Approach",
+        "cta_link": ""
+      },
       "blocks": [
         {
           "type": "feature",

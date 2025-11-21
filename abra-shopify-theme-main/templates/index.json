@@ -151,11 +151,13 @@
         "feature_3"
       ],
       "settings": {
-        "heading": "About Our Literary AI Platform",
-        "description": "<p>We harness the power of artificial intelligence to unlock deeper understanding of literature. Our platform combines scholarly wisdom with cutting-edge technology to transform how readers, writers, and researchers engage with narratives.</p>",
+        "heading": "Meet Our Literary AI Expert",
+        "profile_name": "Dr. Sarah Mitchell",
+        "profile_title": "Chief Literary Analyst & AI Researcher",
+        "description": "<p>With over 15 years of experience in literary analysis and artificial intelligence, Dr. Mitchell leads our team in combining deep scholarly knowledge with cutting-edge technology. She has analyzed thousands of narratives, helping readers, writers, and researchers unlock deeper understanding of their favorite stories.</p><p>Her groundbreaking work in computational narratology has been published in leading academic journals, and she regularly speaks at international conferences on the intersection of AI and literary studies.</p>",
         "show_cta": true,
-        "cta_text": "Explore Our Platform",
-        "cta_link": "shopify://collections/all"
+        "cta_text": "Learn More About Our Approach",
+        "cta_link": ""
       }
     },
     "how_it_works": {
