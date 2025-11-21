@@ -1,0 +1,398 @@
+/* Literary AI Analysis - Sage & Magician Theme */
+/*
+ * Color Philosophy:
+ * Sage: Wisdom, knowledge, understanding (greens, earth tones)
+ * Magician: Mystery, transformation, wonder (purples, golds)
+ */
+
+:root {
+  /* Sage Archetype Colors - Wisdom & Knowledge */
+  --sage-primary: #7A9B76;
+  --sage-light: #9CAF88;
+  --sage-deep: #4A5D23;
+  --sage-muted: #B8C5B1;
+
+  /* Magician Archetype Colors - Mystery & Transformation */
+  --magician-primary: #6B4C9A;
+  --magician-light: #9370DB;
+  --magician-gold: #B8860B;
+  --magician-accent: #DDA15E;
+
+  /* Neutral & Background Colors */
+  --parchment-bg: #F5F3EE;
+  --parchment-light: #E8E4DC;
+  --parchment-dark: #D4CEC4;
+  --text-primary: #2C2C2C;
+  --text-secondary: #5A5A5A;
+
+  /* Mystical Gradient */
+  --mystical-gradient: linear-gradient(135deg, var(--sage-primary) 0%, var(--magician-primary) 100%);
+  --sage-gradient: linear-gradient(180deg, var(--sage-light) 0%, var(--sage-primary) 100%);
+  --wisdom-gradient: linear-gradient(45deg, var(--sage-deep) 0%, var(--magician-gold) 100%);
+}
+
+/* Global Body Styling */
+body {
+  background-color: var(--parchment-bg);
+  color: var(--text-primary);
+  font-family: 'Georgia', 'Garamond', serif;
+}
+
+/* Header Styling - Wisdom Banner */
+.header-wrapper {
+  background: linear-gradient(180deg, rgba(122, 155, 118, 0.1) 0%, transparent 100%);
+  border-bottom: 1px solid var(--sage-muted);
+}
+
+.header {
+  font-family: 'Baskerville', 'Georgia', serif;
+}
+
+/* Hero Banner - Mystical & Wise */
+.banner {
+  position: relative;
+  overflow: hidden;
+}
+
+.banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--mystical-gradient);
+  opacity: 0.15;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.banner__content {
+  position: relative;
+  z-index: 2;
+}
+
+.banner__heading {
+  font-family: 'Baskerville', 'Georgia', serif;
+  color: var(--magician-primary);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.02em;
+}
+
+.banner__text {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+  line-height: 1.8;
+}
+
+/* Buttons - Sage & Magician Variants */
+.button--primary {
+  background: var(--mystical-gradient);
+  border: none;
+  color: white;
+  font-family: 'Georgia', serif;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 1rem 2.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(107, 76, 154, 0.3);
+}
+
+.button--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(107, 76, 154, 0.4);
+}
+
+.button--secondary {
+  background: transparent;
+  border: 2px solid var(--sage-primary);
+  color: var(--sage-deep);
+  font-family: 'Georgia', serif;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 1rem 2.5rem;
+  transition: all 0.3s ease;
+}
+
+.button--secondary:hover {
+  background: var(--sage-primary);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Rich Text Section - Scholarly Feel */
+.rich-text {
+  background-color: var(--parchment-light);
+  padding: 4rem 2rem;
+}
+
+.rich-text__heading {
+  font-family: 'Baskerville', 'Georgia', serif;
+  color: var(--magician-primary);
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.rich-text__heading::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60%;
+  height: 3px;
+  background: var(--wisdom-gradient);
+}
+
+.rich-text__text {
+  font-size: 1.125rem;
+  line-height: 1.9;
+  color: var(--text-secondary);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Product Cards - Literary Mystique */
+.card {
+  background: white;
+  border: 1px solid var(--sage-muted);
+  border-radius: 8px;
+  transition: all 0.4s ease;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(107, 76, 154, 0.2);
+  border-color: var(--magician-light);
+}
+
+.card__heading {
+  font-family: 'Baskerville', 'Georgia', serif;
+  color: var(--magician-primary);
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+
+.card__information {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* Multicolumn Section - Service Offerings */
+.multicolumn {
+  background: linear-gradient(180deg, var(--parchment-bg) 0%, var(--parchment-light) 100%);
+  padding: 5rem 0;
+}
+
+.multicolumn-card {
+  background: white;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.multicolumn-card:hover {
+  border-color: var(--magician-primary);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(107, 76, 154, 0.15);
+}
+
+.multicolumn-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--mystical-gradient);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.multicolumn-card:hover::before {
+  opacity: 1;
+}
+
+.multicolumn-card__title {
+  font-family: 'Baskerville', 'Georgia', serif;
+  color: var(--sage-deep);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.multicolumn-card__description {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+/* Featured Collection */
+.collection {
+  padding: 5rem 0;
+  background-color: var(--parchment-bg);
+}
+
+.collection__title {
+  font-family: 'Baskerville', 'Georgia', serif;
+  color: var(--magician-primary);
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.collection__title::after {
+  content: '✦';
+  display: block;
+  font-size: 1.5rem;
+  color: var(--magician-gold);
+  margin-top: 0.5rem;
+}
+
+/* Image with Text Section */
+.image-with-text {
+  background: white;
+  border-top: 3px solid var(--sage-primary);
+  border-bottom: 3px solid var(--magician-primary);
+}
+
+.image-with-text__heading {
+  font-family: 'Baskerville', 'Georgia', serif;
+  color: var(--magician-primary);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.image-with-text__text {
+  color: var(--text-secondary);
+  line-height: 1.9;
+  font-size: 1.0625rem;
+}
+
+/* Footer - Wisdom Grounding */
+.footer {
+  background: linear-gradient(180deg, var(--sage-deep) 0%, var(--magician-primary) 100%);
+  color: white;
+  padding: 3rem 0;
+}
+
+.footer__heading {
+  font-family: 'Baskerville', 'Georgia', serif;
+  color: var(--magician-gold);
+}
+
+/* Price Styling - Golden Accent */
+.price {
+  font-family: 'Georgia', serif;
+  color: var(--magician-gold);
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+/* Special Literary Decorative Elements */
+.literary-ornament {
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--magician-gold);
+  margin: 2rem 0;
+}
+
+.literary-ornament::before,
+.literary-ornament::after {
+  content: '◆';
+  margin: 0 1rem;
+  opacity: 0.5;
+}
+
+/* Mystical Hover Effects */
+@keyframes mystical-glow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(107, 76, 154, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(107, 76, 154, 0.5);
+  }
+}
+
+.mystical-glow:hover {
+  animation: mystical-glow 2s ease-in-out infinite;
+}
+
+/* Typography Enhancements */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Baskerville', 'Georgia', serif;
+  color: var(--magician-primary);
+  letter-spacing: 0.01em;
+}
+
+p {
+  font-family: 'Georgia', 'Garamond', serif;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+/* Link Styling - Magical Underline */
+a {
+  color: var(--magician-primary);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--magician-gold);
+}
+
+a:not(.button)::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--wisdom-gradient);
+  transition: width 0.3s ease;
+}
+
+a:not(.button):hover::after {
+  width: 100%;
+}
+
+/* Responsive Typography */
+@media screen and (max-width: 749px) {
+  .banner__heading {
+    font-size: 2rem;
+  }
+
+  .rich-text__heading,
+  .collection__title {
+    font-size: 1.75rem;
+  }
+}
+
+/* Custom Scrollbar - Themed */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--parchment-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--mystical-gradient);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--sage-deep) 0%, var(--magician-primary) 100%);
+}
