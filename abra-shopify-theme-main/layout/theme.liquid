@@ -309,6 +309,9 @@
       {%- render 'cart-drawer' -%}
     {%- endif -%}
 
+    {%- comment -%} Custom Literary AI Navigation {%- endcomment -%}
+    {%- render 'literary-ai-nav' -%}
+
     {% sections 'header-group' %}
 
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
@@ -316,6 +319,9 @@
     </main>
 
     {% sections 'footer-group' %}
+
+    {%- comment -%} Custom Literary AI Footer {%- endcomment -%}
+    {%- render 'literary-ai-footer' -%}
 
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
